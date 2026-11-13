@@ -114,4 +114,4 @@ git push -u origin HEAD
 bash scripts/install-hooks.sh
 ```
 
-装 `czg`：`npm i -g cz-git`。不装也能用 `git commit -m "feat(control): ..."`，钩子会照样校验。
+装 `czg`：`npm i -g czg`（注意是 `czg`；`cz-git` 只是适配器库，没有命令行）。不装也能用 `git commit -m "feat(control): ..."`，钩子会照样校验。

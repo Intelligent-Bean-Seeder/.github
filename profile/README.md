@@ -106,14 +106,16 @@ git commit --allow-empty -m "test"
 
 ---
 
-## 第 4 步：装 cz-git（写提交信息的菜单）
+## 第 4 步：装 czg（写提交信息的菜单）
 
 ```bash
-npm i -g cz-git
+npm i -g czg
 czg --version
 ```
 
 装完就有 `czg` 命令，仓库里的 `.czrc` 已经配好白名单，不用初始化。
+
+> 注意包名：**命令行的包叫 `czg`**，不是 `cz-git`。`cz-git` 是给 commitizen 用的适配器库，装错了只会在 `npm ls -g` 里多一行，`czg` 仍然找不到。
 
 **没有 Node 也能干活**：手写 `git commit -m "feat(control): 增加摇杆遥控"`，格式一样，钩子只认格式不认工具。
 
