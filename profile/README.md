@@ -45,6 +45,7 @@
 | 桂世燊 | 视觉 | `vision` |
 | 邹嘉程、杜铭泽 | 机器学习 | `ml` |
 | 叶思雨、杨武、郭靖尧 | 机械 | `sim` `docs` |
+| 张展浩、王宇卿 | 待分配（先跟机械与仿真） | `sim` `docs` |
 
 ---
 
@@ -60,11 +61,18 @@
 ## 第 2 步：克隆
 
 ```bash
+# 负责上位机 / 视觉 / 机器学习 / 雷达的，克隆这个：
 git clone --recurse-submodules https://github.com/Intelligent-Bean-Seeder/RaspberryPi_SLAM.git
-cd RaspberryPi_SLAM
+
+# 负责下位机 / 电控的，换成这个：
+git clone --recurse-submodules https://github.com/Intelligent-Bean-Seeder/STM32.git
+
+cd <你克隆下来的目录>
 ```
 
 `--recurse-submodules` **不能省**。省了 `src/Robot_Interfaces` 就是个空目录，后面编译会报找不到 `robot_interfaces`。
+
+> 要改接口的人**两个库都要克隆**——一次协议变更要同时改两端。
 
 **检查点**：
 
@@ -294,7 +302,9 @@ git push --force-with-lease
 gh pr create --fill
 ```
 
-或到网页上点。**PR 标题就是最终提交信息**，必须符合 `type(scope): 描述`，否则 `PR Title` 检查会红。描述按模板填五段：
+没装 `gh` 也完全没问题：到网页上点 `Compare & pull request` 即可，后面的检查一模一样。
+
+**PR 标题就是最终提交信息**，必须符合 `type(scope): 描述`，否则 `PR Title` 检查会红。描述按模板填五段：
 
 | 段 | 写什么 |
 | --- | --- |
@@ -335,9 +345,11 @@ RaspberryPi_SLAM PR（升 submodule 指针 + 适配代码）
 ```bash
 git switch main
 git pull --rebase origin main
-git branch -d feat/wm-control-add-joy-teleop
+git branch -D feat/wm-control-add-joy-teleop   # squash 合并后必须用 -D
 git submodule update --init
 ```
+
+> 为什么是 `-D`：squash 合并会把你的多个提交压成一个新的提交，本地那条分支在 git 眼里“没有合并过”，`-d` 会报 `not fully merged`。合并时勾上 GitHub 的 **Delete branch** 更省事，本地这条用 `-D` 清掉。
 
 ---
 

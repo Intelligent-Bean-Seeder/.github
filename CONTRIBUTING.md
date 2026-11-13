@@ -8,7 +8,7 @@
 | `RaspberryPi_SLAM` | 上位机：树莓派 5 / Ubuntu 24.04 / ROS 2 Jazzy | C++ / Python |
 | `STM32` | 下位机：STM32F407 / micro-ROS | C |
 
-> 本文只写「规则」。**怎么操作**（克隆、装钩子、cz-git、日常同步、冲突处理）见组织主页的上手教程：https://github.com/Intelligent-Bean-Seeder
+> 本文只写「规则」。**怎么操作**（克隆、装钩子、czg、日常同步、冲突处理）见组织主页的上手教程：https://github.com/Intelligent-Bean-Seeder
 
 ---
 
@@ -23,7 +23,7 @@
 ## R2 分支
 
 - **R2-1【必须】** 分支名格式：`<type>/<initials>-<scope>-<slug>`
-  例：`feat/wm-control-add-joy-teleop`、`fix/wy-hw-uart-baud-921600`、`proto/zth-add-torque-field`
+  例：`feat/wm-control-add-joy-teleop`、`fix/wy-hw-uart-baud-921600`、`proto/zth-proto-add-torque-field`
 - **R2-2【必须】** 从最新主线切出：`git switch -c <分支名> origin/main`
 - **R2-3【禁止】** 直接 `push` 到 `main`。主线只接受 PR。
 - **R2-4【必须】** 分支存活 **≤ 3 天**，单个 PR **≤ 400 行**。做不完就拆，先合能跑的部分。
@@ -31,7 +31,7 @@
 - **R2-6【禁止】** 把 `main` merge 进功能分支（会污染历史）。用 `rebase`。
 - **R2-7【必须】** `proto/` 分支全组织同时只允许 **一个**，由协议负责人（`zth`）开，合并后立即删除。
 
-### type 白名单（11 个）
+### type 白名单（10 个）
 
 `feat` `fix` `docs` `refactor` `perf` `test` `build` `ci` `chore` `proto`
 
@@ -62,11 +62,11 @@
 
 ## R3 提交
 
-- **R3-1【必须】** 格式：`<type>(<scope>): <subject>`，subject 用中文，不超过 50 字。
+- **R3-1【必须】** 格式：`<type>(<scope>): <subject>`，subject 用中文，不超过 50 字（钩子放行到 72，但按 50 写）。
 - **R3-2【必须】** type / scope 取自上方白名单，不在表里就说明你选错了。
 - **R3-3【必须】** 破坏性变更加 `!`，并在正文写 `BREAKING CHANGE:` 说明影响。
 - **R3-4【禁止】** subject 只写「修改」「更新」「修复 bug」这类无信息量的词。
-- **R3-5【必须】** 已安装本地钩子（`bash scripts/install-hooks.sh`）。没装的话，提交会被钩子拒绝；`--no-verify` 绕过视为违规。
+- **R3-5【必须】** 已安装本地钩子（`bash scripts/install-hooks.sh`）。**没装 = 你的提交不经过任何校验**；装了之后，不合规的提交会被直接拒绝。`--no-verify` 绕过视为违规。
 
 ## R4 PR 与评审
 
@@ -81,12 +81,12 @@
 - **R5-1【必须】** 顺序固定：`robot_interfaces` PR → 打 tag → `STM32` PR → `RaspberryPi_SLAM` PR。
 - **R5-2【必须】** 三个 PR 的描述里都写 `Part n/3 of #<issue 编号>`，方便串起来。
 - **R5-3【必须】** 说明四件事：谁发、谁收、周期、超时与断链行为。
-- **R5-4【必须】** 版本号规则：新增字段 → minor；删除字段或改语义 → major；纯注释 → patch。
+- **R5-4【必须】** 版本号：新增字段 → minor；纯注释/文档 → patch；**删除字段或改语义** → `0.x` 阶段仍升 minor，但必须带 `!` + `BREAKING CHANGE` 并两端同步升级；`≥1.0.0` 之后升 major。
 
 ## R6 安全与环境
 
 - **R6-1【禁止】** 任何 key / token / 密码进代码、注释或日志。
-- **R6-2【必须】** API key 只放 GitHub Secrets，变量名统一 `OPENAI_KEY`。
+- **R6-2【必须】** API key 只放 GitHub Secrets，变量名统一 `OPENAI_KEY` 与 `OPENAI_API_BASE`。
 - **R6-3【必须】** 行尾由仓库内 `.gitattributes` 决定，不要在本机设 `core.autocrlf=true` 覆盖它。
 
 ## R7 追责
