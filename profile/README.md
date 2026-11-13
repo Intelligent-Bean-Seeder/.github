@@ -21,7 +21,7 @@
 
 | 仓库 | 里面有什么 | 谁主要在这里干活 |
 | --- | --- | --- |
-| `robot_interfaces` | 只有 `.msg` 接口定义，发版用 tag | 协议负责人（张天浩） |
+| `robot_interfaces` | 只有 `.msg` 接口定义，发版用 tag | 协议负责人 |
 | `RaspberryPi_SLAM` | ROS 2 上位机：感知、规划、主控 | 上位机、视觉、机器学习、雷达 |
 | `STM32` | 下位机固件：电机、传感器、micro-ROS | 下位机、电控 |
 
@@ -39,14 +39,12 @@
 
 | 人 | 角色 | 常用 scope |
 | --- | --- | --- |
-| 吴冕、张天浩 | 上位机 / 协议 | `control` `bringup` `fi` `proto` `deps` |
-| 王滢、张子路 | 下位机 | `fi` `hw` `deps` |
+| 吴冕、张天浩 | 上位机 / 协议 | `control` `bringup` `fi` `proto` `deps` `radar` |
+| 王滢、张子路 | 下位机 / 协议 | `fi` `hw` `deps` |
 | 张笑然 | 电控 | `control` `hw` |
 | 桂世燊 | 视觉 | `vision` |
 | 邹嘉程、杜铭泽 | 机器学习 | `ml` |
 | 叶思雨、杨武、郭靖尧 | 机械 | `sim` `docs` |
-
-> 雷达目前没有负责人（`OWNERS.md` 里标了代管），涉及 `radar` 的改动先找张笑然。
 
 ---
 
