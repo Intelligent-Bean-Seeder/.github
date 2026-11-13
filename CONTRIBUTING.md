@@ -8,6 +8,8 @@
 | `RaspberryPi_SLAM` | 上位机：树莓派 5 / Ubuntu 24.04 / ROS 2 Jazzy | C++ / Python |
 | `STM32` | 下位机：STM32F407 / micro-ROS | C |
 
+> 本文只写「规则」。**怎么操作**（克隆、装钩子、cz-git、日常同步、冲突处理）见组织主页的上手教程：https://github.com/Intelligent-Bean-Seeder
+
 ---
 
 ## R1 仓库边界
