@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 协作规范 / 命名规则
+    url: https://github.com/Intelligent-Bean-Seeder/.github/blob/main/CONTRIBUTING.md
+    about: 分支怎么命名、提交怎么写、接口怎么改，先看这里
+  - name: 给 AI 助手的规则
+    url: https://github.com/Intelligent-Bean-Seeder/.github/blob/main/AI_AGENT_RULES.md
+    about: 复制给 Claude Code / Codex / Cursor 等项目上下文，避免它乱改
