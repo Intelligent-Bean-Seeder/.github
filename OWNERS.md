@@ -8,7 +8,7 @@
 | 模块 | 负责人 | 缩写 | 主要仓库 | 说明 |
 | --- | --- | --- | --- | --- |
 | 总负责 / 电控 | 张笑然 | `zxr` | 全部 | 排期、跨仓库协调、最终合并 |
-| 上位机 / 协议 | 吴冕 | `wm` | `RaspberryPi_SLAM`、`robot_interfaces` | 感知接入、调度、状态机 |
+| 上位机 / 协议 / 雷达 | 吴冕 | `wm` | `RaspberryPi_SLAM`、`robot_interfaces` | 感知接入、雷达 L2、调度、状态机 |
 | 上位机 / 协议 | 张天浩 | `zth` | `RaspberryPi_SLAM`、`robot_interfaces` | 控制、任务流程、接口定义 |
 | 下位机 / 协议 | 王滢 | `wy` | `STM32`、`robot_interfaces` | 固件、micro-ROS 节点 |
 | 下位机 / 协议 | 张子路 | `zzl` | `STM32`、`robot_interfaces` | 驱动、与 PCB 对照 |
@@ -20,8 +20,6 @@
 | 机械 | 郭靖尧 | `gjy` | — | 运动学仿真、有限元 |
 | 待分配 | 张展浩 | `zzh` | — | |
 | 待分配 | 王宇卿 | `wyq` | — | |
-
-> **雷达暂无负责人**，涉及 `radar` 的改动在 PR 里 @ `zxr` 代管，定人后更新本表。
 
 ## 按路径（约定优先级高于上面的模块）
 
